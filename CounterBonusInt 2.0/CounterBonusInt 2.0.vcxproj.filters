@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{83088de9-e17d-4f3c-8885-fabfafe08fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{3fab0c09-1875-4ba6-8b61-50fc54ed4876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\netvars">
+      <UniqueIdentifier>{3b80aef0-6604-4748-892f-86f3b8e9242c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils\netvars">
+      <UniqueIdentifier>{1aff541e-1ad2-429a-885b-567ee51b23ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\offsets">
+      <UniqueIdentifier>{d336f4c5-c20b-4334-bdf2-49e6d329d8a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils\offsets">
+      <UniqueIdentifier>{c7c5ff7c-21a0-44e0-a627-519f2bbda9b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{fdb49428-014c-494e-8761-389ba5b3c730}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaces">
+      <UniqueIdentifier>{fcad7e88-4596-4fda-8407-0942c7782777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SDK">
+      <UniqueIdentifier>{358405ef-c8c3-468a-92a6-7bb890171422}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDK">
+      <UniqueIdentifier>{1bdd135a-68d8-417a-8a1e-6536226f89d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Hooks">
+      <UniqueIdentifier>{33202013-d852-463f-be48-d5de2f22dc0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Hooks">
+      <UniqueIdentifier>{fb1086ba-2b08-4600-94fc-1782c7dc0478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDK\Entity">
+      <UniqueIdentifier>{1a9a93b3-af49-4646-bc35-51fb4d9408c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SDK\Entity">
+      <UniqueIdentifier>{4d4b9ebb-1fa2-4fe9-ac30-8d80acc1a972}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SDK\Vector">
+      <UniqueIdentifier>{f3938676-564d-46db-ab1e-e59a42e36a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cheats">
+      <UniqueIdentifier>{4f672692-2178-4510-baea-f11d03b05b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cheats">
+      <UniqueIdentifier>{b256d2ff-885c-4041-8681-061170ce0679}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Console.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Toolbox.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\netvars\netvars.cpp">
+      <Filter>Source Files\Utils\netvars</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\offsets\offsets.cpp">
+      <Filter>Source Files\Utils\offsets</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces\Interfaces.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks\CreateMove.cpp">
+      <Filter>Source Files\Hooks</Filter>
+    </ClCompile>
+    <ClCompile Include="SDK\Entity\Entity.cpp">
+      <Filter>Source Files\SDK\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces\IEngineClient.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces\IBaseClientDll.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\Bhop.cpp">
+      <Filter>Source Files\Cheats</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dllmain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Console.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Toolbox.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\netvars\netvars.h">
+      <Filter>Header Files\Utils\netvars</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\Interfaces.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Vector\Angle.h">
+      <Filter>Header Files\SDK\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Vector\Vector.h">
+      <Filter>Header Files\SDK\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Vector\VMatrix.h">
+      <Filter>Header Files\SDK\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\CreateMove.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\Hooks.h">
+      <Filter>Header Files\Hooks</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Entity\Entity.h">
+      <Filter>Header Files\SDK\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\sdk.h">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\UserCmd.h">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\IColideable.h">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IClientEntityList.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IEngineClient.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IBaseClientDll.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\Bhop.h">
+      <Filter>Header Files\Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\Cheats.h">
+      <Filter>Header Files\Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="SDK\Defines.h">
+      <Filter>Header Files\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces\IClientMode.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Utils\offsets\offsets.h">
+      <Filter>Header Files\Utils\offsets</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

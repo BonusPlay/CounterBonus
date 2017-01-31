@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3001F7A5-8A98-4670-A5B5-D9EB77C6C8D0}</ProjectGuid>
+    <RootNamespace>CounterBonusInt30</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Hooks\CreateMove.cpp" />
+    <ClCompile Include="Hooks\PaintTraverse.cpp" />
+    <ClCompile Include="Interfaces\Interfaces.cpp" />
+    <ClCompile Include="Interfaces\Surface.cpp" />
+    <ClCompile Include="Menu\button.cpp" />
+    <ClCompile Include="Menu\callbacks.cpp" />
+    <ClCompile Include="Menu\checkbox.cpp" />
+    <ClCompile Include="Menu\frame.cpp" />
+    <ClCompile Include="Menu\key.cpp" />
+    <ClCompile Include="Menu\menu.cpp" />
+    <ClCompile Include="Menu\skinchanger.cpp" />
+    <ClCompile Include="Menu\slider.cpp" />
+    <ClCompile Include="Menu\tab.cpp" />
+    <ClCompile Include="SDK\Console.cpp" />
+    <ClCompile Include="SDK\CVar.cpp" />
+    <ClCompile Include="Utils\Draw.cpp" />
+    <ClCompile Include="Utils\Input.cpp" />
+    <ClCompile Include="Utils\Settings.cpp" />
+    <ClCompile Include="Utils\Toolbox.cpp" />
+    <ClCompile Include="Utils\VMT.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dllmain.h" />
+    <ClInclude Include="Hooks\CreateMove.h" />
+    <ClInclude Include="Hooks\PaintTraverse.h" />
+    <ClInclude Include="Interfaces\BaseClientDll.h" />
+    <ClInclude Include="Interfaces\ClientMode.h" />
+    <ClInclude Include="Interfaces\Engine.h" />
+    <ClInclude Include="Interfaces\EntityList.h" />
+    <ClInclude Include="Interfaces\GlobalVars.h" />
+    <ClInclude Include="Interfaces\ICVar.h" />
+    <ClInclude Include="Interfaces\InputSystem.h" />
+    <ClInclude Include="Interfaces\Interfaces.h" />
+    <ClInclude Include="Interfaces\Surface.h" />
+    <ClInclude Include="Interfaces\VPanel.h" />
+    <ClInclude Include="Menu\button.h" />
+    <ClInclude Include="Menu\callbacks.h" />
+    <ClInclude Include="Menu\checkbox.h" />
+    <ClInclude Include="Menu\element.h" />
+    <ClInclude Include="Menu\frame.h" />
+    <ClInclude Include="Menu\key.h" />
+    <ClInclude Include="Menu\menu.h" />
+    <ClInclude Include="Menu\skinchanger.h" />
+    <ClInclude Include="Menu\slider.h" />
+    <ClInclude Include="Menu\tab.h" />
+    <ClInclude Include="SDK\Console.h" />
+    <ClInclude Include="SDK\CUserCMD.h" />
+    <ClInclude Include="SDK\CVar.h" />
+    <ClInclude Include="SDK\Entity.h" />
+    <ClInclude Include="SDK\Enums.h" />
+    <ClInclude Include="Utils\Color.h" />
+    <ClInclude Include="Utils\Draw.h" />
+    <ClInclude Include="Utils\Input.h" />
+    <ClInclude Include="Utils\Settings.h" />
+    <ClInclude Include="Utils\Toolbox.h" />
+    <ClInclude Include="Utils\Vector.h" />
+    <ClInclude Include="Utils\VMT.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
