@@ -14,13 +14,10 @@ int main (int argc, char** argv)
 bool setup (int argc, char** argv)
 {
 	SetUnhandledExceptionFilter (unhandled_handler);
-	Console = new CConsole ();
-
-	if (argc > 1)
-		if (!strcmp (argv[ 1 ], "-debug"))
-			Console->debug = true;
+	Console = new cConsole ();
 
 	MiscUtils = new CMiscUtils ();
+	ThreadManager = new cThreadManager();
 
 	Console->SetConsoleColor (dark_green, black);
 	cout << "/==============================================================================\\"
@@ -37,7 +34,7 @@ bool setup (int argc, char** argv)
 	
 	cout << "> Attempting to attatch to Counter-Strike: Global Offensive" << endl
 		<< "If you haven't started CS:GO yet, please do it now" << endl;
-	Memory = new CMemory ();
+	Memory = new cMemory ();
 	Memory->Print ();
 
 	cout << "================================================================================";
@@ -53,7 +50,7 @@ bool setup (int argc, char** argv)
 	cout << "================================================================================";
 	cout << "> Starting up threads..." << endl;
 
-	//threadPool.emplace_back (&CBhop::Start, CBhop ());
+	ThreadManager->create("bhop", bhop);
 
 	return true;
 }
@@ -74,26 +71,17 @@ void mainLoop ()
 		<< "\\==============================================================================/" << endl
 		<< endl;
 	Console->SetConsoleColor (white, black);
+
+	int i;
+	cin >> i;
 }
 
 void cleanup ()
 {
-	bBhopThreadStop = true;
-	bBhopThreadTerminate = true;
-
 	cout << "================================================================================";
 	cout << "> Ending threads..." << endl;
 
-	for (unsigned int i = 0; i < threadPool.size (); i++)
-	{
-		while (threadPool[ i ].joinable ())
-		{
-			cout << ".";
-			threadPool[ i ].join ();
-			Sleep (10);
-			cout << endl << "Thread " << i << " ended!" << endl;
-		}
-	}
+	ThreadManager->endAll();
 
 	delete MiscUtils;
 	delete Memory;

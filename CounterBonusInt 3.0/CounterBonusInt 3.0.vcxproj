@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -18,13 +18,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -71,15 +71,6 @@
     <ClCompile Include="Hooks\PaintTraverse.cpp" />
     <ClCompile Include="Interfaces\Interfaces.cpp" />
     <ClCompile Include="Interfaces\Surface.cpp" />
-    <ClCompile Include="Menu\button.cpp" />
-    <ClCompile Include="Menu\callbacks.cpp" />
-    <ClCompile Include="Menu\checkbox.cpp" />
-    <ClCompile Include="Menu\frame.cpp" />
-    <ClCompile Include="Menu\key.cpp" />
-    <ClCompile Include="Menu\menu.cpp" />
-    <ClCompile Include="Menu\skinchanger.cpp" />
-    <ClCompile Include="Menu\slider.cpp" />
-    <ClCompile Include="Menu\tab.cpp" />
     <ClCompile Include="SDK\Console.cpp" />
     <ClCompile Include="SDK\CVar.cpp" />
     <ClCompile Include="Utils\Draw.cpp" />
@@ -102,16 +93,6 @@
     <ClInclude Include="Interfaces\Interfaces.h" />
     <ClInclude Include="Interfaces\Surface.h" />
     <ClInclude Include="Interfaces\VPanel.h" />
-    <ClInclude Include="Menu\button.h" />
-    <ClInclude Include="Menu\callbacks.h" />
-    <ClInclude Include="Menu\checkbox.h" />
-    <ClInclude Include="Menu\element.h" />
-    <ClInclude Include="Menu\frame.h" />
-    <ClInclude Include="Menu\key.h" />
-    <ClInclude Include="Menu\menu.h" />
-    <ClInclude Include="Menu\skinchanger.h" />
-    <ClInclude Include="Menu\slider.h" />
-    <ClInclude Include="Menu\tab.h" />
     <ClInclude Include="SDK\Console.h" />
     <ClInclude Include="SDK\CUserCMD.h" />
     <ClInclude Include="SDK\CVar.h" />

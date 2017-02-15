@@ -1,84 +1,94 @@
-#include "Memory.h"
+#pragma once
+#include "Memory.hpp"
 
-CMemory* Mem = new CMemory ();
+#include <TlHelp32.h>
 
-CMemory::CMemory ()
-{}
+#include "Console.hpp"
 
-CMemory::~CMemory ()
+#pragma region Singleton
+cMemoryManager* Memory;
+
+cMemoryManager::cMemoryManager()
 {
-	CloseHandle (hProcess);
+	Console->DebugMessage("Memory starting up");
 }
 
-void CMemory::Process (char* ProcessName)
+cMemoryManager::~cMemoryManager()
 {
-	HANDLE hPID = CreateToolhelp32Snapshot (TH32CS_SNAPPROCESS, NULL);
+	Console->DebugMessage("Memory shutting down");
+	CloseHandle(hProcess);
+}
+#pragma endregion
+
+void cMemoryManager::Process(char* ProcessName)
+{
+	HANDLE hPID = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 	PROCESSENTRY32 ProcEntry;
-	ProcEntry.dwSize = sizeof (ProcEntry);
+	ProcEntry.dwSize = sizeof(ProcEntry);
 
 	do
-		if (!strcmp (ProcEntry.szExeFile, ProcessName))
+		if (!strcmp(ProcEntry.szExeFile, ProcessName))
 		{
 			PID = ProcEntry.th32ProcessID;
-			CloseHandle (hPID);
+			CloseHandle(hPID);
 
-			hProcess = OpenProcess (PROCESS_ALL_ACCESS, FALSE, PID);
+			hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, PID);
 			return;
 		}
-	while (Process32Next (hPID, &ProcEntry));
+	while (Process32Next(hPID, &ProcEntry));
 
-	system ("pause");
-	exit (0);
+	system("pause");
+	exit(0);
 }
 
-DWORD CMemory::Module (char* ModuleName)
+DWORD cMemoryManager::Module(char* ModuleName)
 {
-	HANDLE hModule = CreateToolhelp32Snapshot (TH32CS_SNAPMODULE, PID);
+	HANDLE hModule = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, PID);
 	MODULEENTRY32 mEntry;
-	mEntry.dwSize = sizeof (mEntry);
+	mEntry.dwSize = sizeof(mEntry);
 
 	do
-		if (!strcmp (mEntry.szModule, ModuleName))
+		if (!strcmp(mEntry.szModule, ModuleName))
 		{
-			CloseHandle (hModule);
+			CloseHandle(hModule);
 			return (DWORD)mEntry.modBaseAddr;
 		}
-	while (Module32Next (hModule, &mEntry));
+	while (Module32Next(hModule, &mEntry));
 
 	return 0;
 }
 
-DWORD CMemory::ModuleSize (char* ModuleName)
+DWORD cMemoryManager::ModuleSize(char* ModuleName)
 {
-	HANDLE hModule = CreateToolhelp32Snapshot (TH32CS_SNAPMODULE, PID);
+	HANDLE hModule = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, PID);
 	MODULEENTRY32 mEntry;
-	mEntry.dwSize = sizeof (mEntry);
+	mEntry.dwSize = sizeof(mEntry);
 
 	do
-		if (!strcmp (mEntry.szModule, ModuleName))
+		if (!strcmp(mEntry.szModule, ModuleName))
 		{
-			CloseHandle (hModule);
+			CloseHandle(hModule);
 			return (DWORD)mEntry.modBaseSize;
 		}
-	while (Module32Next (hModule, &mEntry));
+	while (Module32Next(hModule, &mEntry));
 
 	return 0;
 }
 
-DWORD CMemory::FindSignature (DWORD base, DWORD size, BYTE* sign, char* mask)
+DWORD cMemoryManager::FindSignature(DWORD base, DWORD size, BYTE* sign, char* mask)
 {
 	MEMORY_BASIC_INFORMATION mbi = { 0 };
 	DWORD offset = 0;
 	while (offset < size)
 	{
-		VirtualQueryEx (hProcess, (LPCVOID)(base + offset), &mbi, sizeof (MEMORY_BASIC_INFORMATION));
+		VirtualQueryEx(hProcess, (LPCVOID)(base + offset), &mbi, sizeof(MEMORY_BASIC_INFORMATION));
 		if (mbi.State != MEM_FREE)
 		{
-			BYTE* buffer = new BYTE[ mbi.RegionSize ];
-			ReadProcessMemory (hProcess, mbi.BaseAddress, buffer, mbi.RegionSize, NULL);
+			BYTE* buffer = new BYTE[mbi.RegionSize];
+			ReadProcessMemory(hProcess, mbi.BaseAddress, buffer, mbi.RegionSize, NULL);
 			for (unsigned int i = 0; i < mbi.RegionSize; i++)
 			{
-				if (DataCompare (buffer + i, sign, mask))
+				if (DataCompare(buffer + i, sign, mask))
 				{
 					delete[] buffer;
 					return (DWORD)mbi.BaseAddress + i;
@@ -92,7 +102,7 @@ DWORD CMemory::FindSignature (DWORD base, DWORD size, BYTE* sign, char* mask)
 	return 0;
 }
 
-bool CMemory::DataCompare (BYTE* data, BYTE* sign, char* mask)
+bool cMemoryManager::DataCompare(BYTE* data, BYTE* sign, char* mask)
 {
 	for (; *mask; mask++, sign++, data++)
 	{

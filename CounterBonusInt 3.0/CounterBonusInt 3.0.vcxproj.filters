@@ -37,12 +37,6 @@
     <Filter Include="Source Files\SDK">
       <UniqueIdentifier>{02260bd9-761e-421b-bf50-41444e8be416}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Menu">
-      <UniqueIdentifier>{2d6d70dd-555d-4a39-a7da-c921b92bbe32}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Menu">
-      <UniqueIdentifier>{5449918f-fdd0-4f6d-b789-4546e4a987a8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -62,33 +56,6 @@
     </ClCompile>
     <ClCompile Include="Utils\VMT.cpp">
       <Filter>Source Files\Utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\button.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\callbacks.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\checkbox.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\frame.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\key.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\menu.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\skinchanger.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\slider.cpp">
-      <Filter>Source Files\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu\tab.cpp">
-      <Filter>Source Files\Menu</Filter>
     </ClCompile>
     <ClCompile Include="Utils\Settings.cpp">
       <Filter>Source Files\Utils</Filter>
@@ -155,41 +122,11 @@
     <ClInclude Include="Interfaces\BaseClientDll.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="Menu\button.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\callbacks.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\checkbox.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\frame.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\key.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\menu.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\skinchanger.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\slider.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\tab.h">
-      <Filter>Header Files\Menu</Filter>
-    </ClInclude>
     <ClInclude Include="Utils\Settings.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Input.h">
       <Filter>Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu\element.h">
-      <Filter>Header Files\Menu</Filter>
     </ClInclude>
     <ClInclude Include="Utils\Color.h">
       <Filter>Header Files\Utils</Filter>

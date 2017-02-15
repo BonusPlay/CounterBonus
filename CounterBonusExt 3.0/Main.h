@@ -2,15 +2,16 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "Utils\Console.h"
-#include "Utils\InputHelper.h"
-#include "Utils\MiscUtils.h"
-#include "Utils\Memory.h"
+#include "Utils/Console.h"
+#include "Utils/InputHelper.h"
+#include "Utils/MiscUtils.h"
+#include "Utils/Memory.h"
+#include "Utils/Thread.h"
 
-#include "Game\Offsets.h"
-#include "Game\Netvars.h"
+#include "Game/Offsets.h"
+#include "Game/Netvars.h"
 
-#include "Cheats\Cheats.h"
+#include "Cheats/Bhop.h"
 
 using namespace std;
 

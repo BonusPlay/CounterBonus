@@ -5,10 +5,11 @@
 #define getByte(x)		(getBits(x[0]) << 4 | getBits(x[1]))
 
 typedef std::vector<unsigned char> vecByte;
+bool DataCompare(const unsigned char* bytes, const char* pattern);
 
-CMemory* Memory;
+cMemory* Memory;
 
-CMemory::CMemory ()
+cMemory::CMemory ()
 {
 	while (true)
 	{
@@ -32,12 +33,12 @@ CMemory::CMemory ()
 	}
 }
 
-CMemory::~CMemory ()
+cMemory::~CMemory ()
 {
 	Console->DebugMessage ("Memory shutting down");
 }
 
-bool CMemory::Attach (const std::string& ProcessName)
+bool cMemory::Attach (const std::string& ProcessName)
 {
 	HANDLE hPID = CreateToolhelp32Snapshot (TH32CS_SNAPPROCESS, NULL);
 	if (hPID == INVALID_HANDLE_VALUE) return false;
@@ -64,7 +65,7 @@ bool CMemory::Attach (const std::string& ProcessName)
 	return false;
 }
 
-MODULEENTRY32 CMemory::GetModule (const std::string& ModuleName)
+MODULEENTRY32 cMemory::GetModule (const std::string& ModuleName)
 {
 	HANDLE hModule = CreateToolhelp32Snapshot (TH32CS_SNAPMODULE, ProcessID);
 	MODULEENTRY32 mEntry;
@@ -93,12 +94,12 @@ MODULEENTRY32 CMemory::GetModule (const std::string& ModuleName)
 	return mEntry;
 }
 
-bool CMemory::Clear ()
+bool cMemory::Clear ()
 {
 	return (CloseHandle (hProcess) == TRUE);
 }
 
-void CMemory::Print ()
+void cMemory::Print ()
 {
 	if (hProcess == INVALID_HANDLE_VALUE)
 	{
@@ -115,7 +116,7 @@ void CMemory::Print ()
 	cout << "> EngineSize = 0x" << hex << uppercase << EngineSize << nouppercase << endl;
 }
 
-DWORD CMemory::FindPattern (DWORD base, DWORD size, const char* pattern, short type, DWORD patternOffset, DWORD addressOffset)
+DWORD cMemory::FindPattern (DWORD base, DWORD size, const char* pattern, short type, DWORD patternOffset, DWORD addressOffset)
 {
 	MEMORY_BASIC_INFORMATION mbi = { 0 };
 	DWORD offset = 0;
@@ -172,7 +173,7 @@ bool DataCompareOld (BYTE* data, BYTE* sign, char* mask)
 	return true;
 }
 
-DWORD CMemory::FindSignature (DWORD base, DWORD size, BYTE* sign, char* mask)
+DWORD cMemory::FindSignature (DWORD base, DWORD size, BYTE* sign, char* mask)
 {
 	MEMORY_BASIC_INFORMATION mbi = { 0 };
 	DWORD offset = 0;

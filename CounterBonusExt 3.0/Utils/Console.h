@@ -2,11 +2,10 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-#include <Windows.h>
 #include <string>
-#include "MiscUtils.h"
 
 #define std_con_out GetStdHandle(STD_OUTPUT_HANDLE)
+#define DEBUG true;
 
 enum color
 {
@@ -28,26 +27,33 @@ enum color
 	white = 15
 };
 
-class CConsole
+class cConsole
 {
 public:
-	bool debug = false;
+	cConsole();
+	~cConsole();
+	int GetWidth();
+	int GetHeight();
+	void Clear();
+	void SetConsoleCursor(bool cursor);
+	void SetConsoleColor(color textColor, color bgColor);
+	void SetConsoleSize(int width, int height);
+	void GotoXY(int x, int y);
+	void Message(std::string msg);
+	void Message(char* msg, ...);
+	void ColorMessage(color textColor, color bgColor, std::string msg);
+	void ColorMessage(color textColor, color bgColor, char* msg, ...);
+	void DebugMessage(std::string msg);
+	void DebugMessage(char* msg, ...);
+	void SuccessMessage(std::string msg);
+	void SuccessMessage(char* msg, ...);
+	void ErrorMessage(std::string msg);
+	void ErrorMessage(char* msg, ...);
 
-	CConsole ();
-	~CConsole ();
-	int GetWidth ();
-	int GetHeight ();
-	void Clear ();
-	void SetConsoleCursor (bool cursor);
-	void SetConsoleColor (color textColor, color bgColor);
-	void SetConsoleSize (int width, int height);
-	void GotoXY (int x, int y);
-	void ColorMessage (color textColor, color bgColor, std::string msg);
-	void DebugMessage (std::string msg);
-	void SuccessMessage (std::string msg);
-	void ErrorMessage (std::string msg);
+private:
+	std::string GenerateRandomString(int length);
 };
 
-extern CConsole* Console;
+extern cConsole* Console;
 
 #endif // CONSOLE_H

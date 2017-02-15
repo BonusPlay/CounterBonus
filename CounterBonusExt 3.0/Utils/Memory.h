@@ -17,11 +17,11 @@ enum SignatureType
 	SUBTRACT = 0x2
 };
 
-class CMemory
+class cMemory
 {
 public:
-	CMemory ();
-	~CMemory ();
+	cMemory ();
+	~cMemory ();
 	bool Attach (const string& ProcessName);
 	MODULEENTRY32 GetModule (const std::string& ModuleName);
 	bool Clear ();
@@ -169,4 +169,4 @@ private:
 	DWORD EngineSize;
 };
 
-extern CMemory* Memory;
+extern cMemory* Memory;

@@ -1,8 +1,98 @@
-#include <Windows.h>
+#pragma once
+#include "Cheats.hpp"
+#include "Config.hpp"
+#include "Console.hpp"
+#include "Memory.hpp"
+#include "Network.hpp"
+#include "Thread.hpp"
+
+bool init();
+bool work();
+bool exit();
+
+int main(int argc, char** argv)
+{
+	if (!init())
+		return 1;
+	
+	if (!work())
+		return 2;
+
+	if (!exit())
+		return 3;
+}
+
+bool init()
+{
+	Console = new cConsole();
+	Thread = new cThreadManager();
+	Network = new cNetworkManager();
+	Memory = new cMemoryManager();
+	while(Memory->clientDll == 0)
+	{
+		Memory->Process("csgo.exe");
+		Memory->clientDll = Memory->Module("client.dll");
+		Console->Message("Waiting for csgo...");
+		Sleep(500);
+	}
+
+	return true;
+}
+
+bool work()
+{
+	Console->SetConsoleColor(dark_green, black);
+	Console->RawMessage("/==============================================================================\\");
+	Console->RawMessage("|       ______                  __            ____                             |");
+	Console->RawMessage("|      / ____/___  __  ______  / /____  _____/ __ )____  ____  __  _______     |");
+	Console->RawMessage("|     / /   / __ \\/ / / / __ \\/ __/ _ \\/ ___/ __  / __ \\/ __ \\/ / / / ___/     |");
+	Console->RawMessage("|    / /___/ /_/ / /_/ / / / / /_/  __/ /  / /_/ / /_/ / / / / /_/ (__  )      |");
+	Console->RawMessage("|    \\____/\\____/\\__,_/_/ /_/\\__/\\___/_/  /_____/\\____/_/ /_/\\__,_/____/       |");
+	Console->RawMessage("|                                                                              |");
+	Console->RawMessage("|                        proudly presented by BonusPlay                        |");
+	Console->RawMessage("|                                                                              |");
+	Console->RawMessage("\\==============================================================================/");
+	Console->RawMessage("\n\n");
+	Console->SetConsoleColor(white, black);
+
+	json data = Network->getJson("https://api.bonusplay.pl/counterbonus");
+	Config = new cConfig(data);
+
+	printf("ClientDLL:     0x%02x\n", Memory->clientDll);
+	Config->logAll();
+
+	Thread->create("bhop", bhop);
+
+	while (true)
+	{
+		if (GetAsyncKeyState(VK_F6))
+			break;
+		Sleep(500);
+	}
+
+	return true;
+}
+
+bool exit()
+{
+	Thread->endAll();
+	delete Thread;
+
+	delete Memory;
+	delete Network;
+
+	Sleep(500);
+	delete Console;
+	return true;
+}
+
+/*
 #include <iostream>
 #include <string>
+#include <Windows.h>
 
 #include "Memory.h"
+#include "curl/curl.h"
 
 DWORD clientDll;
 DWORD clientDllSize;
@@ -24,13 +114,10 @@ void log (std::string);
 
 int main (int argc, char * argv[])
 {
-	log ("CounterBonusPublic v. 1.2");
+	log ("CounterBonusPublic v. 1.3");
 	Mem->Process ("csgo.exe");
 	clientDll = Mem->Module ("client.dll");
 	clientDllSize = Mem->ModuleSize ("client.dll");
-	//entityList = 0x04A57EA4;
-	//localPlayer = 0x00A3A43C;
-	//forceJump = 0x04EED318;
 	updateEntityList ();
 	updateLocalPlayer ();
 	updateForceJump ();
@@ -54,16 +141,16 @@ int main (int argc, char * argv[])
 void updateEntityList ()
 {
 	DWORD start;
-	start = Mem->FindSignature (clientDll, clientDllSize, (PBYTE)"\x05\x00\x00\x00\x00\xC1\xE9\x00\x39\x48\x04", "x????xx?xxx");
-	DWORD p1 = Mem->ReadMem<DWORD> (start + 1);
-	BYTE p2 = Mem->ReadMem<BYTE> (start + 7);
+	start = Mem->FindSignature (clientDll, clientDllSize, (PBYTE)"\x05\x00\x00\x00\x00\xC1\xe9\x00\x39\x48\x04", "x????xx?xxx");
+	DWORD p1 = Mem->ReadMem<DWORD>(start + 0x1);
+	DWORD p2 = Mem->ReadMem<DWORD>(start + 0x7);
 	entityList = (p1 + p2) - clientDll;
 }
 
 void updateLocalPlayer ()
 {
 	DWORD start;
-	start = Mem->FindSignature (clientDll, clientDllSize, (PBYTE)"\x8D\x34\x85\x00\x00\x00\x00\x89\x15\x00\x00\x00\x00\x8B\x41\x08\x8B\x48\x00", "xxx????xx????xxxxx?");
+	start = Mem->FindSignature (clientDll, clientDllSize, (PBYTE)"\xA3\x00\x00\x00\x00\xC7\x05\x00\x00\x00\x00\x00\x00\x00\x00\xE8\x00\x00\x00\x00\x59\xC3\x6A", "x????xx????????x????xxx");
 	DWORD p1 = Mem->ReadMem<DWORD> (start + 0x3);
 	DWORD p2 = Mem->ReadMem<BYTE> (start + 0x12);
 	localPlayer = (p1 + p2) - clientDll;
@@ -72,7 +159,7 @@ void updateLocalPlayer ()
 void updateForceJump ()
 {
 	DWORD start;
-	start = Mem->FindSignature (clientDll, clientDllSize, (PBYTE)"0x89\x15\x00\x00\x00\x00\x8B\x15\x00\x00\x00\x00\xF6\xC2\x03\x74\x03\x83\xCE\x08\xA8\x08\xBF", "xx????xx????xxxxxxxxxxxx");
+	start = Mem->FindSignature (clientDll, clientDllSize, (PBYTE)"\x89\x15\x00\x00\x00\x00\x8B\x15\x00\x00\x00\x00\xF6\xC2\x03\x74\x03\x83\xCE\x08", "xx????xx????xxxxxxxx");
 	forceJump = Mem->ReadMem<DWORD> (start + 0x2) - clientDll;
 }
 
@@ -84,14 +171,10 @@ void radar ()
 		bool r_currentPlayerDormant = Mem->ReadMem<bool> (r_currentPlayer + bDormant);
 		bool r_currentPlayerbSpotted = Mem->ReadMem<bool> (r_currentPlayer + bSpotted);
 		
-		if (r_currentPlayerDormant)
-			continue;
-		else
+		if (!r_currentPlayerDormant)
 		{
 			if (!r_currentPlayerbSpotted)
 				Mem->WriteMem<bool> (r_currentPlayer + bSpotted, 1);
-			else
-				continue;
 		}
 	}
 }
@@ -146,3 +229,4 @@ void log (std::string msg)
 		std::cout << msg;
 	}
 }
+*/

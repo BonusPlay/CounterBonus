@@ -12,8 +12,6 @@
 
 #include "SDK\Console.h"
 
-#include "Menu\menu.h"
-
 using namespace toolkit;
 
 DWORD WINAPI Main (LPVOID params);

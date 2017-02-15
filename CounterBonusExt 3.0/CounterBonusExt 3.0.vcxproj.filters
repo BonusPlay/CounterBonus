@@ -39,9 +39,6 @@
     <ClCompile Include="Utils\Math.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\Console.cpp">
-      <Filter>Source Files\Utils</Filter>
-    </ClCompile>
     <ClCompile Include="Utils\Memory.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
@@ -75,13 +72,16 @@
     <ClCompile Include="Utils\MiscUtils.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Utils\Thread.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Console.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Main.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utils\Console.h">
-      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Utils\InputHelper.h">
       <Filter>Header Files\Utils</Filter>
@@ -121,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="Game\Offsets.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Thread.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Console.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

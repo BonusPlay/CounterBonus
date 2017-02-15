@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ImGUI">
+      <UniqueIdentifier>{e65ca73b-0f04-490c-b2ed-8cd50c4c38d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGUI\DX9">
+      <UniqueIdentifier>{5be81482-fa4d-4448-8719-5fa0381e38ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SourceEngine">
+      <UniqueIdentifier>{d4003ce1-4342-48dc-926e-6f92fc16b338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SourceEngine">
+      <UniqueIdentifier>{3150dd15-554b-4802-b3b5-ace9cc832fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{80ce88c4-bab8-42f0-ad16-f0f29c13758f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{2f070ed1-c5aa-475d-bf3d-5b07ea795bb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{f0e1b1fd-0532-4825-849e-6eba1d644542}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{f69e1955-e830-45e9-89d0-1428def36e3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui_draw.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\imgui.cpp">
+      <Filter>ImGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGUI\DX9\imgui_impl_dx9.cpp">
+      <Filter>ImGUI\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\VMatrix.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\Vector4D.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\Vector2D.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\Vector.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\UtlString.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\SDK.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\CRC.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceEngine\Convar.cpp">
+      <Filter>Source Files\SourceEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\Toolbox.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="NetvarManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hooks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Options.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\EntityESP.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\DrawManager.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ImGUI\stb_truetype.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\stb_rect_pack.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\stb_textedit.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui_internal.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imgui.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\imconfig.h">
+      <Filter>ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGUI\DX9\imgui_impl_dx9.h">
+      <Filter>ImGUI\DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\CGlobalVarsBase.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\CHandle.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\CInput.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\ClientClass.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Color.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Convar.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\CRC.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Definitions.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IAppSystem.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IBaseClientDll.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientEntity.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientEntityList.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientMode.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientNetworkable.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientRenderable.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientThinkable.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IClientUnknown.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IConVar.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\ICvar.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IEngineTrace.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IHandleEntity.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IPanel.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\ISurface.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\IVEngineClient.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\PlayerInfo.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\QAngle.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Recv.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\SDK.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\UtlMemory.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\UtlString.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\UtlVector.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Vector.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Vector2D.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\Vector4D.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceEngine\VMatrix.hpp">
+      <Filter>Header Files\SourceEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\XOR.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\Toolbox.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NetvarManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\VFTableHook.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Options.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\CSPlayer.hpp">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\EntityESP.hpp">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\DrawManager.hpp">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
