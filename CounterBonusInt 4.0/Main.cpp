@@ -11,8 +11,8 @@ BOOL WINAPI DllMain(HANDLE hModule, DWORD dwReason, LPVOID lpReserved)
 		CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE) Hooks::Initialize, NULL, NULL, NULL);
 		break;
 	case DLL_PROCESS_DETACH:
-		if(!lpReserved)
-
+		if (!lpReserved)
+			Hooks::Restore();
 		break;
 	}
 

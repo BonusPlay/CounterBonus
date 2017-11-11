@@ -9,6 +9,10 @@
 #include "Game/EntityESP.hpp"
 #include "Utils/Toolbox.hpp"
 
+#include "Cheats/bhop.hpp"
+#include "Cheats/auto strafe.hpp"
+#include "Cheats/rcs.hpp"
+
 namespace Hooks
 {
 	namespace I
@@ -33,12 +37,6 @@ namespace Hooks
 
 	void Initialize()
 	{
-		/*
-		AllocConsole();
-		AttachConsole(GetCurrentProcessId());
-		freopen("CON", "w", stdout);
-		*/
-
 		NetvarManager::getInstance()->CreateDatabase();
 		NetvarManager::getInstance()->Dump("netvar_dump.txt");
 
@@ -60,6 +58,16 @@ namespace Hooks
 
 		g_fnOriginalPlaySound = I::g_pMatSurfaceHook->Hook(82, (PlaySound_t)Hooked_PlaySound);       //Hooks ISurface::PlaySound
 		g_fnOriginalCreateMove = I::g_pClientModeHook->Hook(24, (CreateMove_t)Hooked_CreateMove);    //Hooks IClientMode::CreateMove
+	}
+
+	void Restore()
+	{
+		SetWindowLongPtr(g_hWindow, GWLP_WNDPROC, (LONG_PTR)g_pOldWindowProc);
+
+		I::g_pRenderer->InvalidateObjects();
+		I::g_pD3DDevice9Hook->RestoreTable();
+		I::g_pClientModeHook->RestoreTable();
+		I::g_pMatSurfaceHook->RestoreTable();
 	}
 
 	void GUI_Init(IDirect3DDevice9* pDevice)
@@ -282,32 +290,10 @@ namespace Hooks
 		//Call original CreateMove
 		bool bRet = g_fnOriginalCreateMove(SourceEngine::Interfaces::ClientMode(), sample_input_frametime, pCmd);
 
-		//Get the Local player pointer
-		auto pLocal = C_CSPlayer::GetLocalPlayer();
+		bhop(pCmd);
+		autostrafe(pCmd);
+		rcs(pCmd);
 
-		//BunnyHop
-		if (Options::g_bBHopEnabled)
-		{
-			//If the player is pressing the JUMP button AND we are on not on ground
-			if ((pCmd->buttons & IN_JUMP) && !(pLocal->GetFlags() & (int)SourceEngine::EntityFlags::FL_ONGROUND))
-				pCmd->buttons &= ~IN_JUMP;
-		}
-
-		
-		//RCS
-		if (Options::g_bRCSEnabled)
-		{
-			auto punchAngles = *pLocal->AimPunch() * 2.0f;
-			if (punchAngles.x != 0.0f || punchAngles.y != 0)
-			{
-				pCmd->viewangles -= punchAngles;
-				if (!Toolbox::getInstance()->Clamp(pCmd->viewangles))
-					abort(); //Failed to clamp angles!!1! ABOOOOOORT
-
-				return false;
-			}
-		}
-		
 		return bRet;
 	}
 }

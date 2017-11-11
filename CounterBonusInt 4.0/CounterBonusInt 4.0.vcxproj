@@ -114,6 +114,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cheats\auto strafe.cpp" />
+    <ClCompile Include="Cheats\bhop.cpp" />
+    <ClCompile Include="Cheats\ranks.cpp" />
+    <ClCompile Include="Cheats\rcs.cpp" />
     <ClCompile Include="Game\EntityESP.cpp" />
     <ClCompile Include="Hooks.cpp" />
     <ClCompile Include="ImGUI\DX9\imgui_impl_dx9.cpp" />
@@ -134,6 +138,10 @@
     <ClCompile Include="Utils\Toolbox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cheats\auto strafe.hpp" />
+    <ClInclude Include="Cheats\bhop.hpp" />
+    <ClInclude Include="Cheats\ranks.hpp" />
+    <ClInclude Include="Cheats\rcs.hpp" />
     <ClInclude Include="Game\CSPlayer.hpp" />
     <ClInclude Include="Game\EntityESP.hpp" />
     <ClInclude Include="Hooks.hpp" />

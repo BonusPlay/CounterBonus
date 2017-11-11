@@ -37,6 +37,12 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{f69e1955-e830-45e9-89d0-1428def36e3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Cheats">
+      <UniqueIdentifier>{25311dd5-f63d-4a95-83b4-fe7cf4bb07a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cheats">
+      <UniqueIdentifier>{2e40227b-5545-436b-9542-a0009c88a9db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -92,6 +98,18 @@
     </ClCompile>
     <ClCompile Include="Utils\DrawManager.cpp">
       <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\ranks.cpp">
+      <Filter>Source Files\Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\bhop.cpp">
+      <Filter>Source Files\Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\rcs.cpp">
+      <Filter>Source Files\Cheats</Filter>
+    </ClCompile>
+    <ClCompile Include="Cheats\auto strafe.cpp">
+      <Filter>Source Files\Cheats</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +265,18 @@
     </ClInclude>
     <ClInclude Include="Utils\DrawManager.hpp">
       <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\bhop.hpp">
+      <Filter>Header Files\Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\ranks.hpp">
+      <Filter>Header Files\Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\rcs.hpp">
+      <Filter>Header Files\Cheats</Filter>
+    </ClInclude>
+    <ClInclude Include="Cheats\auto strafe.hpp">
+      <Filter>Header Files\Cheats</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

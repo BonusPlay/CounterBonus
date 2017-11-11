@@ -4,6 +4,7 @@
 
 #include <Windows.h>
 #include <Psapi.h>
+#include "XOR.hpp"
 
 #pragma region Singleton
 Toolbox* Toolbox::instance = nullptr;
@@ -17,7 +18,10 @@ Toolbox* Toolbox::getInstance()
 }
 
 Toolbox::Toolbox()
-{}
+{
+	msg = (MsgFn)GetProcAddress(GetModuleHandleA(XorStr("tier0.dll")), XorStr("Msg"));
+	warning = (MsgFn)GetProcAddress(GetModuleHandleA(XorStr("tier0.dll")), XorStr("Warning"));
+}
 
 Toolbox::~Toolbox()
 {}

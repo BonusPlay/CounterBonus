@@ -19,4 +19,5 @@ namespace Options
 
 	// MISC
 	extern bool g_bBHopEnabled;
+	extern bool g_bAutoStrafeEnabled;
 }

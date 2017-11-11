@@ -22,6 +22,7 @@ namespace Hooks
 	typedef void(__thiscall* PlaySound_t)(SourceEngine::ISurface*, const char*);
 
 	void Initialize();
+	void Restore();
 	LRESULT __stdcall Hooked_WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	HRESULT __stdcall Hooked_Reset(IDirect3DDevice9* pDevice, D3DPRESENT_PARAMETERS* pPresentationParameters);
 	HRESULT __stdcall Hooked_EndScene(IDirect3DDevice9* pDevice);

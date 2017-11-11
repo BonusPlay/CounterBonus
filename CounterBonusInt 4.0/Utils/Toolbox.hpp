@@ -2,6 +2,9 @@
 
 #include "../SourceEngine/SDK.hpp"
 
+typedef void(__cdecl *MsgFn)(const char*, ...);
+typedef void(__cdecl *WarningFn)(const char*, ...);
+
 class Toolbox
 {
 private:
@@ -14,6 +17,9 @@ private:
 
 public:
 	static Toolbox* getInstance();
+
+	MsgFn msg;
+	WarningFn warning;
 
 	SourceEngine::Vector GetEntityBone(SourceEngine::IClientEntity* pEntity, SourceEngine::ECSPlayerBones Bone);
 	bool ScreenTransform(const SourceEngine::Vector& point, SourceEngine::Vector& screen);

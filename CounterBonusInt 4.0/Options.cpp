@@ -21,4 +21,5 @@ namespace Options
 
 	// MISC
 	extern bool g_bBHopEnabled = false;
+	extern bool g_bAutoStrafeEnabled = false;
 }
